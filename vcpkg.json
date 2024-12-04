@@ -1,0 +1,16 @@
+{
+  "name": "order-management-system",
+  "version": "1.0.0",
+  "dependencies": [
+    "curl",
+    "jsoncpp",
+    "boost",
+    "boost-filesystem",
+    "boost-system",
+    "nlohmann-json",
+    "websocketpp",
+    "openssl"
+
+  ],
+  "builtin-baseline": "65d5e1300da19ef007978a8c347680cc3e19c44f"
+}
