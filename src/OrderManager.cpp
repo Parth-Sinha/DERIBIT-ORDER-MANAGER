@@ -45,7 +45,6 @@ void OrderManager::cancelOrder(const std::string& orderId) {
         auto end = std::chrono::steady_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
         Logger::log("Cancelled Order successfully in " + std::to_string(duration.count()) + " ms: " + response);
-        Logger::log("Order canceled successfully: " + response);
     }
     catch (const std::exception& e) {
         Logger::log("Error cancelling order: " + std::string(e.what()));

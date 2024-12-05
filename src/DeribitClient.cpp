@@ -392,13 +392,6 @@ std::string DeribitClient::modifyOrder(const std::string& adv, const std::string
     }
 
 }
-
-//future
-//option
-//spot
-//future_combo
-//option_combo
-
 std::string DeribitClient::viewCurrentPositions(const std::string& currency, const std::string& kind) {
     if (accessToken.empty()) {
         authenticate();

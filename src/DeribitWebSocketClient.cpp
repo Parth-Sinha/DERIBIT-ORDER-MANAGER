@@ -41,19 +41,13 @@ DeribitWebSocketClient::DeribitWebSocketClient(
 
 void DeribitWebSocketClient::connect() {
     websocketpp::lib::error_code ec;
-
-    std::cout << "Attempting to connect to: " << m_uri << std::endl;
-
     client::connection_ptr con = m_client.get_connection(m_uri, ec);
     if (ec) {
         logError("Connection Creation", ec.message());
         return;
     }
-
     m_hdl = con->get_handle(); // Store the connection handle
     m_client.connect(con);     // Start the connection
-
-    std::cout << "Connection initiated." << std::endl;
 }
 
 void DeribitWebSocketClient::authenticate() {
@@ -155,11 +149,19 @@ void DeribitWebSocketClient::publicUnsubscribe(const std::vector<std::string>& c
 
 void DeribitWebSocketClient::privateUnsubscribe(const std::vector<std::string>& channels) {
     try {
+        if (!m_isConnected) {
+            throw std::runtime_error("WebSocket is not connected. Cannot subscribe to private channels.");
+        }
 
+        // Step 2: Authenticate if not already authenticated
+        if (!m_isAuthenticated) {
+            Logger::log("Authenticating WebSocket session...");
+            authenticate();  // Assumes this method sends an authentication request and updates internal state
+        }
         nlohmann::json request = {
             {"jsonrpc", "2.0"},
             {"method", "private/unsubscribe"},
-            {"id", 22},
+            {"id", 21},
             {"params", {
             {"channels", channels}
             }}
@@ -179,8 +181,6 @@ void DeribitWebSocketClient::run() {
 }
 
 void DeribitWebSocketClient::onOpen(connection_hdl hdl) {
-    std::cout << "WebSocket Connection Opened" << std::endl;
-
     // Set the connection flag to true once the connection is opened
     m_isConnected = true;
 
@@ -197,7 +197,6 @@ void DeribitWebSocketClient::onClose(connection_hdl hdl) {
     // Retrieve the connection object to check for close reason
     websocketpp::client<websocketpp::config::asio_tls_client>::connection_ptr con = m_client.get_con_from_hdl(hdl);
 
-    std::cout << "WebSocket Connection Closed. ";
     m_isConnected = false;
     m_isAuthenticated = false;
 
@@ -219,9 +218,6 @@ void DeribitWebSocketClient::onFail(connection_hdl hdl) {
     // Retrieve the connection object to check for failure reason
     websocketpp::client<websocketpp::config::asio_tls_client>::connection_ptr con = m_client.get_con_from_hdl(hdl);
 
-    // Log the WebSocket connection failure
-    std::cout << "WebSocket Connection Failed. ";
-
     // You can check the failure reason through the connection object
     std::string error_msg = con->get_ec().message();
 
@@ -232,14 +228,10 @@ void DeribitWebSocketClient::onFail(connection_hdl hdl) {
 
 void DeribitWebSocketClient::onMessage(connection_hdl hdl, client::message_ptr msg) {
     using json = nlohmann::json;
-    Logger::log("In onMessage");
-
     try {
         // Parse incoming payload
-        Logger::log("Raw message payload: " + msg->get_payload());
         auto start = std::chrono::high_resolution_clock::now();
         json parsed_msg = json::parse(msg->get_payload());
-        Logger::log("Parsed message: " + parsed_msg.dump(4));
 
         // Handle error field if present
         if (parsed_msg.contains("error")) {
@@ -295,7 +287,6 @@ DeribitWebSocketClient::context_ptr DeribitWebSocketClient::onTLSInit(connection
             char subject_name[256];
             X509* cert = X509_STORE_CTX_get_current_cert(ctx.native_handle());
             X509_NAME_oneline(X509_get_subject_name(cert), subject_name, sizeof(subject_name));
-            std::cout << "Verifying certificate: " << subject_name << std::endl;
             return preverified; // Return true to accept, false to reject
             });
     }
@@ -328,8 +319,6 @@ void DeribitWebSocketClient::send(const nlohmann::json& payload) {
         std::cerr << "Error: Attempted to send message when WebSocket is not open." << std::endl;
         return;
     }
-
-    std::cout << "Sending payload: " << payload.dump(4) << std::endl;
 
     m_client.send(m_hdl, payload.dump(), websocketpp::frame::opcode::text, ec);
 
@@ -366,6 +355,7 @@ void DeribitWebSocketClient::handleSubscriptionData(const nlohmann::json& msg) {
     if (msg.contains("params") && msg["params"].contains("data")) {
         nlohmann::json market_data = msg["params"]["data"];
         std::cout << "Market Update: " << market_data.dump(4) << std::endl;
+        Logger::log("Market Update: " + market_data.dump(4) + "\n");
     }
 }
 

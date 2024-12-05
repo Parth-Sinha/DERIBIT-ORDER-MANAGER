@@ -1,0 +1,74 @@
+2024-12-05 09:27:51 - Market data processed in 1140 microseconds.
+2024-12-05 09:28:18 - Subscribed to private channels: Subscribe private user.orders.ETH-PERPETUAL.raw
+2024-12-05 09:28:18 - Market data processed in 224 microseconds.
+2024-12-05 09:29:10 - Placing order: ETH-PERPETUAL, Quantity: 1, Price: 3100.000000, Side: buy
+2024-12-05 09:29:11 - limit and buy
+2024-12-05 09:29:11 - https://test.deribit.com/api/v2/private/buy?instrument_name=ETH-PERPETUAL&amount=1&type=limit&label=order_1733371151&price=3100.000000
+2024-12-05 09:29:12 - Order placed successfully in 1474 ms: {"jsonrpc":"2.0","result":{"order":{"label":"order_1733371151","price":3.1e3,"direction":"buy","time_in_force":"good_til_cancelled","max_show":1.0,"instrument_name":"ETH-PERPETUAL","order_id":"ETH-15504426337","amount":1.0,"api":true,"web":false,"mmp":false,"replaced":false,"filled_amount":0.0,"last_update_timestamp":1733371151739,"post_only":false,"reduce_only":false,"average_price":0.0,"contracts":1.0,"order_state":"open","creation_timestamp":1733371151739,"order_type":"limit","risk_reducing":false,"is_liquidation":false},"trades":[]},"usIn":1733371151737961,"usOut":1733371151741080,"usDiff":3119,"testnet":true}
+2024-12-05 09:29:12 - Order placed successfully: {"jsonrpc":"2.0","result":{"order":{"label":"order_1733371151","price":3.1e3,"direction":"buy","time_in_force":"good_til_cancelled","max_show":1.0,"instrument_name":"ETH-PERPETUAL","order_id":"ETH-15504426337","amount":1.0,"api":true,"web":false,"mmp":false,"replaced":false,"filled_amount":0.0,"last_update_timestamp":1733371151739,"post_only":false,"reduce_only":false,"average_price":0.0,"contracts":1.0,"order_state":"open","creation_timestamp":1733371151739,"order_type":"limit","risk_reducing":false,"is_liquidation":false},"trades":[]},"usIn":1733371151737961,"usOut":1733371151741080,"usDiff":3119,"testnet":true}
+2024-12-05 09:29:12 - Market Update: {
+    "amount": 1.0,
+    "api": true,
+    "average_price": 0.0,
+    "contracts": 1.0,
+    "creation_timestamp": 1733371151739,
+    "direction": "buy",
+    "filled_amount": 0.0,
+    "instrument_name": "ETH-PERPETUAL",
+    "is_liquidation": false,
+    "label": "order_1733371151",
+    "last_update_timestamp": 1733371151739,
+    "max_show": 1.0,
+    "mmp": false,
+    "order_id": "ETH-15504426337",
+    "order_state": "open",
+    "order_type": "limit",
+    "post_only": false,
+    "price": 3100.0,
+    "reduce_only": false,
+    "replaced": false,
+    "risk_reducing": false,
+    "time_in_force": "good_til_cancelled",
+    "web": false
+}
+
+2024-12-05 09:29:12 - Market data processed in 5289 microseconds.
+2024-12-05 09:30:00 - Modifying order...
+2024-12-05 09:30:00 - accesstoken is : 1733372051012.1Q7bSqB_.bfgqCRbYu1ylOHxKbMDNsm5vF4lI93EigYkkE6JLPQp_8o68VosxGFL5twygkmCByllYKc759V90wveImgtBetXT1dguB64Mrc9gVu7o-cW-NTP4GX7i4RTL9u4XMoLbuspND3e_KiAbSwVlrCW5M0tfS2PstZYHBqoUWiafUHCoGK7pZ-0Mn8EekALfuMho9ySa_Z9cqDE1njGGASV67HDEj-Fas_pZPzDeLeYsEBvqNbRFdiO9H-HXqNADQOggIZZ17A2FdvIBQ8tTxNlE2W7VMnfFY3h92thEu9-zW7gaVStG-HoXHfo9SaFuw4Xr93L6Mqeq7HrmG4lAY4BjsNUStBMS
+2024-12-05 09:30:00 - https://test.deribit.com/api/v2//private/edit?amount=3&order_id=ETH-15504426337&price=3200&advancedimplv
+2024-12-05 09:30:01 - Order modified successfully
+2024-12-05 09:30:01 - Modified order: ModifyOrder implv ETH-15504426337 3 3200 limit
+2024-12-05 09:30:01 - Market Update: {
+    "amount": 3.0,
+    "api": true,
+    "average_price": 0.0,
+    "contracts": 3.0,
+    "creation_timestamp": 1733371151739,
+    "direction": "buy",
+    "filled_amount": 0.0,
+    "instrument_name": "ETH-PERPETUAL",
+    "is_liquidation": false,
+    "label": "order_1733371151",
+    "last_update_timestamp": 1733371200759,
+    "max_show": 3.0,
+    "mmp": false,
+    "order_id": "ETH-15504426337",
+    "order_state": "open",
+    "order_type": "limit",
+    "post_only": false,
+    "price": 3200.0,
+    "reduce_only": false,
+    "replaced": true,
+    "risk_reducing": false,
+    "time_in_force": "good_til_cancelled",
+    "web": false
+}
+
+2024-12-05 09:30:01 - Market data processed in 4273 microseconds.
+2024-12-05 09:30:35 - Fetching order book ...
+2024-12-05 09:30:36 - fetching successfully in 792 ms: {"jsonrpc":"2.0","result":[{"label":"order_1733371151","price":3.2e3,"direction":"buy","time_in_force":"good_til_cancelled","max_show":3.0,"instrument_name":"ETH-PERPETUAL","order_id":"ETH-15504426337","amount":3.0,"api":true,"web":false,"mmp":false,"replaced":true,"filled_amount":0.0,"last_update_timestamp":1733371200759,"post_only":false,"reduce_only":false,"average_price":0.0,"contracts":3.0,"order_state":"open","creation_timestamp":1733371151739,"order_type":"limit","risk_reducing":false,"is_liquidation":false}],"usIn":1733371235488065,"usOut":1733371235489983,"usDiff":1918,"testnet":true}
+2024-12-05 09:30:36 - Order book fetched successfully: {"jsonrpc":"2.0","result":[{"label":"order_1733371151","price":3.2e3,"direction":"buy","time_in_force":"good_til_cancelled","max_show":3.0,"instrument_name":"ETH-PERPETUAL","order_id":"ETH-15504426337","amount":3.0,"api":true,"web":false,"mmp":false,"replaced":true,"filled_amount":0.0,"last_update_timestamp":1733371200759,"post_only":false,"reduce_only":false,"average_price":0.0,"contracts":3.0,"order_state":"open","creation_timestamp":1733371151739,"order_type":"limit","risk_reducing":false,"is_liquidation":false}],"usIn":1733371235488065,"usOut":1733371235489983,"usDiff":1918,"testnet":true}
+2024-12-05 09:30:53 - Fetching order book ...
+2024-12-05 09:30:53 - fetching successfully in 690 ms: {"jsonrpc":"2.0","result":[{"label":"order_1733371151","price":3.2e3,"direction":"buy","time_in_force":"good_til_cancelled","max_show":3.0,"instrument_name":"ETH-PERPETUAL","order_id":"ETH-15504426337","amount":3.0,"api":true,"web":false,"mmp":false,"replaced":true,"filled_amount":0.0,"last_update_timestamp":1733371200759,"post_only":false,"reduce_only":false,"average_price":0.0,"contracts":3.0,"order_state":"open","creation_timestamp":1733371151739,"order_type":"limit","risk_reducing":false,"is_liquidation":false}],"usIn":1733371253252047,"usOut":1733371253254152,"usDiff":2105,"testnet":true}
+2024-12-05 09:30:53 - Order book fetched successfully: {"jsonrpc":"2.0","result":[{"label":"order_1733371151","price":3.2e3,"direction":"buy","time_in_force":"good_til_cancelled","max_show":3.0,"instrument_name":"ETH-PERPETUAL","order_id":"ETH-15504426337","amount":3.0,"api":true,"web":false,"mmp":false,"replaced":true,"filled_amount":0.0,"last_update_timestamp":1733371200759,"post_only":false,"reduce_only":false,"average_price":0.0,"contracts":3.0,"order_state":"open","creation_timestamp":1733371151739,"order_type":"limit","risk_reducing":false,"is_liquidation":false}],"usIn":1733371253252047,"usOut":1733371253254152,"usDiff":2105,"testnet":true}
+2024-12-05 10:24:26 - Market data processed in 550 microseconds.

@@ -183,7 +183,17 @@ int main() {
         }
 
         // Command loop for user input
-        std::cout << "Order Terminal: Enter commands (e.g., Subscribe, Unsubscribe, etc.). Type 'exit' to quit.\n";
+        std::cout << "Order Terminal: Enter commands (e.g., PlaceOrder, ModifyOrder, CancelOrder, FetchOrderBook, Subscribe, Unsubscribe, etc.). Type 'exit' to quit.\n";
+        std::cout << "List of supported Commands\n";
+        std::cout << "PlaceOrder <symbol> <quantity> <price> <side> <type> \n";
+        std::cout << "ModifyOder <adv> <orderId> <amount> <price> <type> \n";
+        std::cout << "CancelOrder <orderId> \n";
+        std::cout << "Subscribe <mode> {space separated channels} \n";
+        std::cout << "Unsubscribe <mode> {space separated channels} \n";
+        std::cout << "FetchOrderBook \n\n";
+        std::cout << "-------------------------------------------------\n";
+        std::cout << "Enter the commands here :- \n";
+
         while (true) {
             std::string command;
             std::getline(std::cin, command);
