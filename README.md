@@ -39,7 +39,11 @@
   - Command: `CancelOrder <orderId>`
 
 
-https://github.com/user-attachments/assets/aed21bac-1e12-4a4a-b558-c67ba66d0bc0
+
+
+https://github.com/user-attachments/assets/d41e8cd5-a2df-4f23-86d6-38a3b043359e
+
+
 
 
 
@@ -61,7 +65,11 @@ https://github.com/user-attachments/assets/aed21bac-1e12-4a4a-b558-c67ba66d0bc0
 
 
 
-https://github.com/user-attachments/assets/98f034cf-36a2-4664-b8d3-36f5af946ce2
+https://github.com/user-attachments/assets/dc2603e7-1ed4-4795-a08b-7fe9baf21046
+
+
+
+
 
 
 
@@ -79,6 +87,10 @@ https://github.com/user-attachments/assets/98f034cf-36a2-4664-b8d3-36f5af946ce2
     ```
     Unsubscribe private user.orders.BTC-PERPETUAL.raw
     ```
+
+
+https://github.com/user-attachments/assets/59c8d4a5-641b-4421-974c-152a96de8cfe
+
 
 ---
 
@@ -221,6 +233,10 @@ Execute the application:
 ### CODE WALKTHROUGH
 
 
-https://github.com/user-attachments/assets/38de3cc2-3fc9-465b-8eb4-dd3431806726
+
+
+Uploading code walkthrough.mp4…
+
+
 
 
