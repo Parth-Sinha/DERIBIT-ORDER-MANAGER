@@ -233,9 +233,7 @@ Execute the application:
 ### CODE WALKTHROUGH
 
 
-
-
-Uploading code walkthrough.mp4…
+https://github.com/user-attachments/assets/ccf8e526-1913-4710-a2fe-ede08d87e864
 
 
 
